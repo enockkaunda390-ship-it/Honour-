@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENOCKS MEDIA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      background: #007bff;
+      color: white;
+      margin: 0;
+      padding: 15px 0;
+      font-size: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+      padding-bottom: 80px; /* space for bottom nav */
+    }
+    .active {
+      display: block;
+    }
+
+    /* Video styling */
+    video {
+      width: 90%;
+      max-width: 600px;
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Photo grid */
+    .photo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+    .photo-grid img {
+      width: 45%;
+      max-width: 180px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Music player */
+    audio {
+      width: 90%;
+      max-width: 500px;
+      margin: 10px;
+    }
+
+    /* Bottom navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+      border-top: 1px solid #ccc;
+    }
+
+    .bottom-nav button {
+      background: none;
+      border: none;
+      color: #555;
+      font-size: 14px;
+      cursor: pointer;
+      flex-grow: 1;
+      padding: 5px;
+      transition: 0.3s;
+    }
+
+    .bottom-nav button.active-tab {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    /* Icons using emojis for simplicity */
+    .bottom-nav span {
+      display: block;
+      font-size: 20px;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎬 SIBLINGS MEDIA</h1>
+
+  <!-- Videos Section -->
+  <div id="videos" class="section active">
+    <h2>🎥 My Videos</h2>
+    <h3>Mr and Mrs 
+      Bwalya
+    </h3>
+    <video controls src="Mirriam.mp4"></video>
+   
+    <video controls src="jona.mp4"></video>
+    Me And Jehovah's people'
+    <video controls src="Guard.mp4"></video>
+    
+  </div>
+
+  <!-- Photos Section -->
+  <div id="photos" class="section">
+    <h2>📸 My Photos</h2>
+    <div class="photo-grid">
+      <img src="fam.jpg" alt="Photo 1">
+      <img src="wed.jpg" alt="Photo 2">
+      <img src="big.jpg" alt="Photo 3">
+      <img src="luka.jpg" alt="Photo 4">
+    </div>
+  </div>
+
+  <!-- Music Section -->
+  <div id="music" class="section">
+    <h2>🎵 My Music</h2>
+    <audio controls>
+      <source src="chichi.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="tasha.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="jw.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <button id="btnVideos" class="active-tab" onclick="showSection('videos', this)">
+      <span>🎥</span>Videos
+    </button>
+    <button id="btnPhotos" onclick="showSection('photos', this)">
+      <span>📸</span>Photos
+    </button>
+    <button id="btnMusic" onclick="showSection('music', this)">
+      <span>🎵</span>Music
+    </button>
+  </div>
+
+  <script>
+    function showSection(sectionId, button) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      // Show the selected section
+      document.getElementById(sectionId).classList.add('active');
+
+      // Reset active tab styling
+      document.querySelectorAll('.bottom-nav button').forEach(btn => btn.classList.remove('active-tab'));
+      button.classList.add('active-tab');
+    }
+  </script>
+
+</body>
+</html>
